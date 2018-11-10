@@ -9,20 +9,20 @@
   <title>Effective C++ 读书笔记(1) | 一个喜欢胡扯的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言近段时间由于本人一直忙于导师的《系统工程》书籍部分章节的编写，公众号继续断更。现在静下心来总结，虽然在编写《系统工程》的时候遇到很多困难，因此在参阅了很多相关的文献书籍之后，对于导师说的“写一本通俗易懂的技术书籍需要反复推敲”这句话还是感触很深的。即使我现在有一点程序基础的人，也很难看得懂以前的厚厚的本科专业书（尤其是数据结构）。 因为我最近一直在研究C++相关的编写技巧，结合以前的项目经验、">
-<meta name="keywords" content="Cpp,总结,程序开发">
+<meta name="keywords" content="程序开发,Cpp,总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Effective C++ 读书笔记(1)">
 <meta property="og:url" content="http://yoursite.com/2018/11/09/Effective-C-读书笔记(1)/index.html">
 <meta property="og:site_name" content="一个喜欢胡扯的博客">
 <meta property="og:description" content="前言近段时间由于本人一直忙于导师的《系统工程》书籍部分章节的编写，公众号继续断更。现在静下心来总结，虽然在编写《系统工程》的时候遇到很多困难，因此在参阅了很多相关的文献书籍之后，对于导师说的“写一本通俗易懂的技术书籍需要反复推敲”这句话还是感触很深的。即使我现在有一点程序基础的人，也很难看得懂以前的厚厚的本科专业书（尤其是数据结构）。 因为我最近一直在研究C++相关的编写技巧，结合以前的项目经验、">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/assets/imgpost/语言特性图.webp">
+<meta property="og:image" content="http://yoursite.com/assets/imgpost/语言特性图.jpg">
 <meta property="og:image" content="http://yoursite.com/assets/img/qrcode_for_gh.jpg">
-<meta property="og:updated_time" content="2018-11-10T03:25:55.481Z">
+<meta property="og:updated_time" content="2018-11-10T05:33:30.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ 读书笔记(1)">
 <meta name="twitter:description" content="前言近段时间由于本人一直忙于导师的《系统工程》书籍部分章节的编写，公众号继续断更。现在静下心来总结，虽然在编写《系统工程》的时候遇到很多困难，因此在参阅了很多相关的文献书籍之后，对于导师说的“写一本通俗易懂的技术书籍需要反复推敲”这句话还是感触很深的。即使我现在有一点程序基础的人，也很难看得懂以前的厚厚的本科专业书（尤其是数据结构）。 因为我最近一直在研究C++相关的编写技巧，结合以前的项目经验、">
-<meta name="twitter:image" content="http://yoursite.com/assets/imgpost/语言特性图.webp">
+<meta name="twitter:image" content="http://yoursite.com/assets/imgpost/语言特性图.jpg">
   
     <link rel="alternative" href="/atom.xml" title="一个喜欢胡扯的博客" type="application/atom+xml">
   
@@ -195,7 +195,7 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近段时间由于本人一直忙于导师的《系统工程》书籍部分章节的编写，公众号继续断更。现在静下心来总结，虽然在编写《系统工程》的时候遇到很多困难，因此在参阅了很多相关的文献书籍之后，对于导师说的“写一本通俗易懂的技术书籍需要反复推敲”这句话还是感触很深的。即使我现在有一点程序基础的人，也很难看得懂以前的厚厚的本科专业书（尤其是数据结构）。</p>
 <p>因为我最近一直在研究C++相关的编写技巧，结合以前的项目经验、20多本系统工程软件工程经典书籍、《程序员面试宝典》，现主要围绕《Effective C++ 改善程序和设计的55个方法》这本书的内容说下软件设计。</p>
 <a id="more"></a>
-<h2 id="浅谈C"><a href="#浅谈C" class="headerlink" title="浅谈C++"></a>浅谈C++</h2><p>C++是一门难学易用的语言。C++是一种弱类型、静态语言。<br><img src="/assets/imgpost/语言特性图.webp" alt="img"></p>
+<h2 id="浅谈C"><a href="#浅谈C" class="headerlink" title="浅谈C++"></a>浅谈C++</h2><p>C++是一门难学易用的语言。C++是一种弱类型、静态语言。<br><img src="/assets/imgpost/语言特性图.jpg" alt="img"></p>
 <p>我写过C++、PHP、Javascript、Python、Java、Object-C，其中只有C++跟Object-C给我感觉是具有较高的可读性，因为他们是静态语言，即编译器在编译的时候执行类型检查，虽然相比整体写起来会比较费劲，但可读性易维护性是非常高的。</p>
 <p>Python就是典型的写起来爽，看起别人的代码却非常费劲的一门语言。因为深度学习的火热、Python也在这几年热度也很高，虽然人家在科学计算领域应用早就很普遍了，可能跟Matlab用法各方面很像。</p>
 <p>讲回这个C++系列，《Effective C++》里提出了55条优化规则，我将用我自己的理解重新梳理一次。</p>
@@ -210,17 +210,17 @@
 <h2 id="对象被使用前应先被初始化"><a href="#对象被使用前应先被初始化" class="headerlink" title="对象被使用前应先被初始化"></a>对象被使用前应先被初始化</h2><p>还记得刚开始写程序的时候黑窗里的“烫烫烫烫……“吗？其实在VC的Debug模式下，对于未初始化的栈内存会全部填成0xcc，对应于汉字字符串看就是“烫”；对于未初始化的堆内存（手动new出来的）会全部填成 0xcd，对应于汉字字符串看就是“屯”。</p>
 <p>这种情况尤其在class中尤为重要。书中提到：构造函数最好使用成员初值列（member initialzation list），而不要在构造函数本体内使用赋值操作（assignment）。尤其在提到，初值列列出的成员变量，其排列次序应该和他们在class内声明的次序相同。</p>
 <p>这里附带说一下初值列与赋值的区别。赋值的例子与我们平常写代码的习惯是一样的，如下代码所示。</p>
-<pre><code class="bash">class Demo {
-    string _name;
-    int _age;
-    <span class="function"><span class="title">Word</span></span>() {
-        _name = 0;
-        _age = 0;
+<pre><code class="c++"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> {</span>
+    <span class="built_in">string</span> _name;
+    <span class="keyword">int</span> _age;
+    Word() {
+        _name = <span class="number">0</span>;
+        _age = <span class="number">0</span>;
     }
 };
 </code></pre>
 <p>但使用初值列的写法如下代码所示。</p>
-<pre><code class="bash">Demo::Demo() : _name(0), _age(0) {}
+<pre><code class="c++">Demo::Demo() : _name(<span class="number">0</span>), _age(<span class="number">0</span>) {}
 </code></pre>
 <p>因为在编译器的赋值操作中，需要创建一个临时string，再赋值到_name中，最后释放那个临时string，所以初值列的操作效率是高于赋值操作的。</p>
 <p>关于初始化问题，这边会扯到一个相关的知识点——<strong>单例模式</strong>（<strong>Singleton</strong>）。</p>
@@ -279,15 +279,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">程序开发</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Cpp</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">程序开发</a>
         		</li>
       		
 		</ul>
@@ -358,8 +358,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2018/02/24/技术全靠吹-区块链基础介绍/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">技术全靠吹--区块链基础介绍</div>
+    <a href="/2018/06/05/大家来试试用markdown吧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">试用Markdown及其教程</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -493,31 +493,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">程序开发</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考研</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面试考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">demo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">程序开发</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,11 +513,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">Cpp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考研</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">考试面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面试考试</a>
               </li>
              
               <li class="article-tag-list-item">
