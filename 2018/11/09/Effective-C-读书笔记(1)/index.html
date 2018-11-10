@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/assets/imgpost/语言特性图.webp">
 <meta property="og:image" content="http://yoursite.com/assets/img/qrcode_for_gh.jpg">
-<meta property="og:updated_time" content="2018-11-10T03:04:44.420Z">
+<meta property="og:updated_time" content="2018-11-10T03:25:55.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Effective C++ 读书笔记(1)">
 <meta name="twitter:description" content="前言近段时间由于本人一直忙于导师的《系统工程》书籍部分章节的编写，公众号继续断更。现在静下心来总结，虽然在编写《系统工程》的时候遇到很多困难，因此在参阅了很多相关的文献书籍之后，对于导师说的“写一本通俗易懂的技术书籍需要反复推敲”这句话还是感触很深的。即使我现在有一点程序基础的人，也很难看得懂以前的厚厚的本科专业书（尤其是数据结构）。 因为我最近一直在研究C++相关的编写技巧，结合以前的项目经验、">
@@ -210,9 +210,18 @@
 <h2 id="对象被使用前应先被初始化"><a href="#对象被使用前应先被初始化" class="headerlink" title="对象被使用前应先被初始化"></a>对象被使用前应先被初始化</h2><p>还记得刚开始写程序的时候黑窗里的“烫烫烫烫……“吗？其实在VC的Debug模式下，对于未初始化的栈内存会全部填成0xcc，对应于汉字字符串看就是“烫”；对于未初始化的堆内存（手动new出来的）会全部填成 0xcd，对应于汉字字符串看就是“屯”。</p>
 <p>这种情况尤其在class中尤为重要。书中提到：构造函数最好使用成员初值列（member initialzation list），而不要在构造函数本体内使用赋值操作（assignment）。尤其在提到，初值列列出的成员变量，其排列次序应该和他们在class内声明的次序相同。</p>
 <p>这里附带说一下初值列与赋值的区别。赋值的例子与我们平常写代码的习惯是一样的，如下代码所示。</p>
-<p><code>class Demo {</code><br><code>string _name;</code><br><code>int _age;</code><br><code>Word() {</code><br><code>_name = 0;</code><br><code>_age = 0;</code><br><code>}</code><br><code>};</code></p>
+<pre><code class="bash">class Demo {
+    string _name;
+    int _age;
+    <span class="function"><span class="title">Word</span></span>() {
+        _name = 0;
+        _age = 0;
+    }
+};
+</code></pre>
 <p>但使用初值列的写法如下代码所示。</p>
-<p><code>Demo::Demo() : _name(0), _age(0) {}</code></p>
+<pre><code class="bash">Demo::Demo() : _name(0), _age(0) {}
+</code></pre>
 <p>因为在编译器的赋值操作中，需要创建一个临时string，再赋值到_name中，最后释放那个临时string，所以初值列的操作效率是高于赋值操作的。</p>
 <p>关于初始化问题，这边会扯到一个相关的知识点——<strong>单例模式</strong>（<strong>Singleton</strong>）。</p>
 <p>单例模式的目的就是在程序中维护一个“类似”全局变量或对象，通常在客户端开发中用来存储一些程序状态变量或用户状态变量。</p>
@@ -504,14 +513,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">考研</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面试考试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
              
@@ -520,7 +521,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">考研</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">考试面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面试考试</a>
               </li>
              
               <li class="article-tag-list-item">
