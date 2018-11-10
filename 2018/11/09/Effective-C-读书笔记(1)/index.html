@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>一个喜欢胡扯的博客</title>
+  <title>Effective C++ 读书笔记(1) | 一个喜欢胡扯的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一个喜欢胡扯的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="前言近段时间由于本人一直忙于导师的《系统工程》书籍部分章节的编写，公众号继续断更。现在静下心来总结，虽然在编写《系统工程》的时候遇到很多困难，因此在参阅了很多相关的文献书籍之后，对于导师说的“写一本通俗易懂的技术书籍需要反复推敲”这句话还是感触很深的。即使我现在有一点程序基础的人，也很难看得懂以前的厚厚的本科专业书（尤其是数据结构）。 因为我最近一直在研究C++相关的编写技巧，结合以前的项目经验、">
+<meta name="keywords" content="Cpp,总结,程序开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Effective C++ 读书笔记(1)">
+<meta property="og:url" content="http://yoursite.com/2018/11/09/Effective-C-读书笔记(1)/index.html">
 <meta property="og:site_name" content="一个喜欢胡扯的博客">
+<meta property="og:description" content="前言近段时间由于本人一直忙于导师的《系统工程》书籍部分章节的编写，公众号继续断更。现在静下心来总结，虽然在编写《系统工程》的时候遇到很多困难，因此在参阅了很多相关的文献书籍之后，对于导师说的“写一本通俗易懂的技术书籍需要反复推敲”这句话还是感触很深的。即使我现在有一点程序基础的人，也很难看得懂以前的厚厚的本科专业书（尤其是数据结构）。 因为我最近一直在研究C++相关的编写技巧，结合以前的项目经验、">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/assets/imgpost/语言特性图.webp">
+<meta property="og:image" content="http://yoursite.com/assets/img/qrcode_for_gh.jpg">
+<meta property="og:updated_time" content="2018-11-10T03:04:44.420Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个喜欢胡扯的博客">
+<meta name="twitter:title" content="Effective C++ 读书笔记(1)">
+<meta name="twitter:description" content="前言近段时间由于本人一直忙于导师的《系统工程》书籍部分章节的编写，公众号继续断更。现在静下心来总结，虽然在编写《系统工程》的时候遇到很多困难，因此在参阅了很多相关的文献书籍之后，对于导师说的“写一本通俗易懂的技术书籍需要反复推敲”这句话还是感触很深的。即使我现在有一点程序基础的人，也很难看得懂以前的厚厚的本科专业书（尤其是数据结构）。 因为我最近一直在研究C++相关的编写技巧，结合以前的项目经验、">
+<meta name="twitter:image" content="http://yoursite.com/assets/imgpost/语言特性图.webp">
   
     <link rel="alternative" href="/atom.xml" title="一个喜欢胡扯的博客" type="application/atom+xml">
   
@@ -164,16 +172,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Effective-C-读书笔记(1)" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-Effective-C-读书笔记(1)" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/09/Effective-C-读书笔记(1)/">Effective C++ 读书笔记(1)</a>
+    <h1 class="article-title" itemprop="name">
+      Effective C++ 读书笔记(1)
     </h1>
   
 
@@ -188,11 +194,72 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>近段时间由于本人一直忙于导师的《系统工程》书籍部分章节的编写，公众号继续断更。现在静下心来总结，虽然在编写《系统工程》的时候遇到很多困难，因此在参阅了很多相关的文献书籍之后，对于导师说的“写一本通俗易懂的技术书籍需要反复推敲”这句话还是感触很深的。即使我现在有一点程序基础的人，也很难看得懂以前的厚厚的本科专业书（尤其是数据结构）。</p>
 <p>因为我最近一直在研究C++相关的编写技巧，结合以前的项目经验、20多本系统工程软件工程经典书籍、《程序员面试宝典》，现主要围绕《Effective C++ 改善程序和设计的55个方法》这本书的内容说下软件设计。</p>
-        
-          <a class="article-more-a" href="/2018/11/09/Effective-C-读书笔记(1)/#more">more >></a>
-        
+<a id="more"></a>
+<h2 id="浅谈C"><a href="#浅谈C" class="headerlink" title="浅谈C++"></a>浅谈C++</h2><p>C++是一门难学易用的语言。C++是一种弱类型、静态语言。<br><img src="/assets/imgpost/语言特性图.webp" alt="img"></p>
+<p>我写过C++、PHP、Javascript、Python、Java、Object-C，其中只有C++跟Object-C给我感觉是具有较高的可读性，因为他们是静态语言，即编译器在编译的时候执行类型检查，虽然相比整体写起来会比较费劲，但可读性易维护性是非常高的。</p>
+<p>Python就是典型的写起来爽，看起别人的代码却非常费劲的一门语言。因为深度学习的火热、Python也在这几年热度也很高，虽然人家在科学计算领域应用早就很普遍了，可能跟Matlab用法各方面很像。</p>
+<p>讲回这个C++系列，《Effective C++》里提出了55条优化规则，我将用我自己的理解重新梳理一次。</p>
+<h2 id="少用-define"><a href="#少用-define" class="headerlink" title="少用#define"></a>少用#define</h2><p>在网上开源代码，尤其是智能算法、BP神经网络代码，都习惯在头文件或者源文件头部写上#define一大堆参数常数。</p>
+<p>#define AAA aaa 这个操作为预处理器操作，其原理流程为预处理器会将代码中相应的AAA参数替换成aaa，即编译器是无法看到AAA的，只能看到已经被预处理器替换（预处理）过的代码。</p>
+<p>问题会出现在，若刚好这个常量出现了问题，编译器报出的错误信息就是aaa，而不是AAA。这样会造成一定的debug难度。</p>
+<p>我在做智能算法仿真实验中，会频繁调整#define后的参数常数，会出现更改#define参数常数后无效的情况（即运行时参数还是未调整的参数），可能是VS的问题，所以每次运行之前都要rebuild整个工程。</p>
+<p>解决的办法：对于单纯变量，可以利用const或enums；如果是函数，可以改用inline，降低我们对预处理器的需求。</p>
+<p>下面重点讲一下const，在书中建议“尽可能使用const”，因为const是编译器的一个语义约束，如果在软件设计中某个变量初始化后不应该被改变，就应该加上const约束。如果不小心改动了具有const属性的变量，编译器肯定会报错，所以这个做法可以让代码更具有稳定性，以避免后续开发因不熟悉而破坏程序。</p>
+<p><strong>static与const的组合</strong>，是C++常考内容，这里不细说了。</p>
+<p>加上static的变量具有静态属性，而且该无论该static变量是全局static变量还是局部static变量，都会存储在内存中的静态存储区，都会存放在内存空间直到程序结束才会被系统回收。</p>
+<h2 id="对象被使用前应先被初始化"><a href="#对象被使用前应先被初始化" class="headerlink" title="对象被使用前应先被初始化"></a>对象被使用前应先被初始化</h2><p>还记得刚开始写程序的时候黑窗里的“烫烫烫烫……“吗？其实在VC的Debug模式下，对于未初始化的栈内存会全部填成0xcc，对应于汉字字符串看就是“烫”；对于未初始化的堆内存（手动new出来的）会全部填成 0xcd，对应于汉字字符串看就是“屯”。</p>
+<p>这种情况尤其在class中尤为重要。书中提到：构造函数最好使用成员初值列（member initialzation list），而不要在构造函数本体内使用赋值操作（assignment）。尤其在提到，初值列列出的成员变量，其排列次序应该和他们在class内声明的次序相同。</p>
+<p>这里附带说一下初值列与赋值的区别。赋值的例子与我们平常写代码的习惯是一样的，如下代码所示。</p>
+<p><code>class Demo {</code><br><code>string _name;</code><br><code>int _age;</code><br><code>Word() {</code><br><code>_name = 0;</code><br><code>_age = 0;</code><br><code>}</code><br><code>};</code></p>
+<p>但使用初值列的写法如下代码所示。</p>
+<p><code>Demo::Demo() : _name(0), _age(0) {}</code></p>
+<p>因为在编译器的赋值操作中，需要创建一个临时string，再赋值到_name中，最后释放那个临时string，所以初值列的操作效率是高于赋值操作的。</p>
+<p>关于初始化问题，这边会扯到一个相关的知识点——<strong>单例模式</strong>（<strong>Singleton</strong>）。</p>
+<p>单例模式的目的就是在程序中维护一个“类似”全局变量或对象，通常在客户端开发中用来存储一些程序状态变量或用户状态变量。</p>
+<p>单例模式在C++中实现的关键点在于函数内的局部静态（local static）变量或对象会在首次调用该对象的时候被初始化，函数内部可以维持一个bool型的静态变量用于判断是否是首次调用该单例对象。调用后返回一个指向局部静态对象的引用（reference）。</p>
+<p>常见的设计模式也是面试的高频题，常见设计模式有单例模式（Singleton）、工厂模式（Factory）、装饰者模式（Decorator）、建筑者模式（Builder）、代理模式、策略模式等。</p>
+<p>这个系列文章的内容深度主要针对已经有一定编程基础并继续提高编程质量的读者。文章内容可能会比较短，但我也会尽量涉及C++的一些常规（有用的、项目实际会用到的）面试题，供大家参考讨论。</p>
+<p>希望我有时间继续更下去。</p>
+<h2 id="相关参考："><a href="#相关参考：" class="headerlink" title="相关参考："></a>相关参考：</h2><ol>
+<li><a href="https://blog.csdn.net/onever_say_love/article/details/50846213" target="_blank" rel="noopener">https://blog.csdn.net/onever_say_love/article/details/50846213</a></li>
+<li><a href="https://www.zhihu.com/question/19918532" target="_blank" rel="noopener">https://www.zhihu.com/question/19918532</a></li>
+<li>《Effective C++ 改善程序和设计的55个方法》</li>
+</ol>
+<h2 id="文章来源为本人公众号，欢迎关注！"><a href="#文章来源为本人公众号，欢迎关注！" class="headerlink" title="文章来源为本人公众号，欢迎关注！"></a>文章来源为本人公众号，欢迎关注！</h2><p><img src="/assets/img/qrcode_for_gh.jpg" alt="img"></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢您对本人对支持<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -220,16 +287,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/09/Effective-C-读书笔记(1)/">官人我仲要 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/11/09/Effective-C-读书笔记(1)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/24/技术全靠吹-区块链基础介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">技术全靠吹--区块链基础介绍</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -249,667 +375,30 @@
 
 
 
-
   
-    <article id="post-技术全靠吹-区块链基础介绍" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/24/技术全靠吹-区块链基础介绍/">技术全靠吹--区块链基础介绍</a>
-    </h1>
   
 
-        
-        <a href="/2018/02/24/技术全靠吹-区块链基础介绍/" class="archive-article-date">
-  	<time datetime="2018-02-23T18:26:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着比特币热度大涨，区块链技术被各大媒体和公众号吹得神乎其神，更有人断言区块链即将改变未来金融方式。我对此非常感兴趣，所以趁着寒假空闲做了一段时间的搜索和研究。无可否认，基于区块链技术的数字货币有一定的技术意义，但当前也存在一些问题。</p>
-        
-          <a class="article-more-a" href="/2018/02/24/技术全靠吹-区块链基础介绍/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">程序开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">区块链</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">技术全靠吹</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/24/技术全靠吹-区块链基础介绍/">官人我仲要 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-常用Git命令小结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/28/常用Git命令小结/">常用Git命令小结</a>
-    </h1>
   
 
-        
-        <a href="/2016/09/28/常用Git命令小结/" class="archive-article-date">
-  	<time datetime="2016-09-28T08:19:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>从大二暑假实习到现在接触Git不知不觉已经两年了，自从用上Git之后就习惯性地把非商业性的代码共享（备份）到Github上，随着IDE工具的发展，许多IDE都已经集成Git版本管理工具，但我还是习惯于在bash内操作。</p>
-        
-          <a class="article-more-a" href="/2016/09/28/常用Git命令小结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">程序开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/28/常用Git命令小结/">官人我仲要 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/04/hello-world/">Hexo Demo</a>
-    </h1>
   
 
-        
-        <a href="/2016/08/04/hello-world/" class="archive-article-date">
-  	<time datetime="2016-08-04T08:52:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-        
-          <a class="article-more-a" href="/2016/08/04/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">程序开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">demo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/04/hello-world/">官人我仲要 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-对于SEO的一些总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/04/对于SEO的一些总结/">对于SEO的一些总结</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/04/对于SEO的一些总结/" class="archive-article-date">
-  	<time datetime="2016-08-04T08:52:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>SEO</strong>是由英文<strong>Search Engine Optimization</strong>缩写而来， 中文意译为“搜索引擎优化”。SEO是指通过站内优化比如网站结构调整、网站内容建设、网站代码优化等及站外优化，比如网站站外推广、网站品牌建设等，使网站满足搜索引擎收录排名需求，在搜索引擎中提高关键词排名。（来自百度百科）</p>
-<p>总得来说，就是提高在网页搜索引擎中的排名，这里排除直接付费竞价等方式提高排名的方式，仅讨论在网站代码优化上下功夫。</p>
-        
-          <a class="article-more-a" href="/2016/08/04/对于SEO的一些总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">程序开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SEO</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/04/对于SEO的一些总结/">官人我仲要 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-报考院校选择以及复习规划" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/27/报考院校选择以及复习规划/">报考院校选择以及复习规划</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/27/报考院校选择以及复习规划/" class="archive-article-date">
-  	<time datetime="2016-07-27T12:52:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>好了！恭喜你！既然你有勇气点开这篇文章，就意味着你很有勇气。</p>
-        
-          <a class="article-more-a" href="/2016/07/27/报考院校选择以及复习规划/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">考研</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">考试面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/27/报考院校选择以及复习规划/">官人我仲要 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-就业or考研选择" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/27/就业or考研选择/">就业or考研</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/27/就业or考研选择/" class="archive-article-date">
-  	<time datetime="2016-07-27T12:46:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>现在正值寒假，不少大三的师弟都来向我咨询如何在“就业”与“考研”之间做出选择。这与一年前的寒假的我一模一样，当时常常与家人讨论此事，最终敲定选择“考研”等事宜。</p>
-<p>关于选择中纠结的问题，我也经过充分的探究，希望下文能够对现在还在迷茫的人有所启发。</p>
-        
-          <a class="article-more-a" href="/2016/07/27/就业or考研选择/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">考研</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">考试面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/27/就业or考研选择/">官人我仲要 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-‘考研’是什么？" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/27/‘考研’是什么？/">‘考研’是什么？</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/27/‘考研’是什么？/" class="archive-article-date">
-  	<time datetime="2016-07-27T12:30:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文主要普及一下“考研”的基本知识，当然没有考过的旁观者对“考研”，“研究生”等词汇也有很多认识误区。</p>
-        
-          <a class="article-more-a" href="/2016/07/27/‘考研’是什么？/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">考研</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面试考试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/27/‘考研’是什么？/">官人我仲要 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-大家来试试用markdown吧" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/05/大家来试试用markdown吧/">试用Markdown及其教程</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/05/大家来试试用markdown吧/" class="archive-article-date">
-  	<time datetime="2016-07-05T13:14:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="你是不是傻啊，写个文章都这么扯淡！"><a href="#你是不是傻啊，写个文章都这么扯淡！" class="headerlink" title="你是不是傻啊，写个文章都这么扯淡！~"></a>你是不是傻啊，写个文章都这么扯淡！~</h2><p>想想还真是非常扯淡，从以前的写文章的编辑器，到现在的markdown语法，真是刷技能强行倒退体验。</p>
-<p>到时候搞一个编辑器可以自动生成markdown格式文件就好了。TODOlist.add()</p>
-        
-          <a class="article-more-a" href="/2016/07/05/大家来试试用markdown吧/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">程序开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/05/大家来试试用markdown吧/">官人我仲要 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2018/11/09/Effective-C-读书笔记(1)/",
+  owner: 'horacework',
+  repo: 'horacework.github.io',
+  oauth: {
+    client_id: '442d2ac1c98b9eea4789',
+    client_secret: 'bf266274e8a6a0e1fe2c61890cad57e94f405a27',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -932,8 +421,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
